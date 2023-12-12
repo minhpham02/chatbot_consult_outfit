@@ -7,11 +7,8 @@ from class_chatbot import *
 from class_chatbot import ConvertData
 
 
-from email.message import EmailMessage
-import ssl,smtplib
 
 # biến khởi tạo
-person = Person(None, None, None)
 validate = Validate()
 
 db = ConvertData()
@@ -31,13 +28,11 @@ luat_tien = db.groupfc()
 # 1. câu hỏi chào hỏi
 def welcome_question():
     print("-->Chatbot: Xin chào, tôi là chatbot tư vấn trang phục!")
-    print("-->Chatbot: Trước khi đưa ra tư vấn, chúng tôi muốn biết một số thông tin của bạn")
 
 user = User(None,None,None,None,None)
 
 def question():
-    print(f'-->Chatbot : Sau đây là một vài câu hỏi chúng tôi dành cho bạn trước khi đưa ra tư vấn')
-    print(f'-->Chatbot : Vui lòng trả lời câu hỏi theo gợi ý để chúng tôi có thể đưa ra tư vấn chính xác nhất dành cho bạn')
+
     
     AllSymLst = [db.resultdacdiem[0], db.resultdacdiem[1],
                  db.resultdacdiem[2], db.resultdacdiem[3],
@@ -48,56 +43,74 @@ def question():
     for i in AllSymLst:
         NewAllSymLst.append(i["iddacdiem"])
             
-    print(f'-->Chatbot: Trang phục bạn muốn tư vấn để đi đâu (Nhập số thứ tự để chọn)')
+    print(f'-->Chatbot: Trang phục bạn muốn tư vấn sử dụng cho sự kiện: ')
+    print(f'-->Chatbot: (Nhập số thứ tự để chọn)')
 
-    count = 1
-    for i in AllSymLst:
-        print(f'{count}. {i["tendacdiem"]} \n')
-        count += 1
-    answer = validate.validate_input_number_form(input())
-    print(f'-->Người dùng: Câu trả lời của tôi là {answer}')
-    print(AllSymLst[int(answer)-1])
-    user.purpose = AllSymLst[int(answer)-1]
-    
+    while(1):
+        count = 1
+        for i in AllSymLst:
+            print(f'{count}. {i["tendacdiem"]} \n')
+            count += 1
+        answer = validate.validate_input_number_form(input())
+        print(f'-->Người dùng: Câu trả lời của tôi là {answer}')
+
+        if (int(answer) < 0 or int(answer) > 4):
+            print('-->Chatbot: Vui lòng nhập 1 số từ 0 tới 4')
+            continue
+        else:
+            print(AllSymLst[int(answer)-1])
+            user.purpose = AllSymLst[int(answer)-1]
+            break
+
+
+    print(f'-->Chatbot: Sau đây là một vài câu hỏi chúng tôi dành cho bạn để có thêm thông tin để có thể đưa ra tư vấn chính xác nhất')
     print("-->Chatbot : Tuổi của bạn hiện tại là bao nhiêu? ")
-    user.age = (int(input()))
-    print(f'-->Người dùng: {user.age}')
-
     
+    while(1):
+        age = validate.validate_input_number_form(input())
+        print(f'-->Người dùng: {age}')
+        if age > 100:
+            print("-->Chatbot : Số tuổi không hợp lệ. Vui lòng nhập lại ")
+            continue
+        else:
+            user.age = age
+            break
+
     print("-->Chatbot : Giới tính của bạn là gì? ")
-    user.gender = validate.validate_name(input())
-    print(f'-->Người dùng: {user.gender}')
+    user.gender = validate.validate_gender(input())
+    print(f'-->Người dùng: Giới tính {user.gender}')
 
     
-    print("-->Chatbot : Bạn muốn tìm trang phục mặc trong thời tiết nào? ")
-    user.weather_preference = validate.validate_name(input())
+    print("-->Chatbot : Bạn muốn tìm trang phục mặc trong thời tiết nào dưới đây? ")
+    print("-->Chatbot : Thời tiết lạnh - Thời tiết nóng ")
+    user.weather_preference = validate.validate_weather(input())
     print(f'-->Người dùng: {user.weather_preference}')
     
     
     print("-->Chatbot : Phong cách ăn mặc của bạn giống với phong cách nào dưới đây?")
     print("-->Chatbot : Phong cách đơn giản - Phong cách trang trọng -  Phong cách năng động - Phong cách công sở - Phong cách cá tính")
-    user.style = validate.validate_name(input())
+    user.style = validate.validate_style(input())
     print(f'-->Người dùng: {user.style}')
 
     return user
 
-def handle_question(list_symptom_of_person, user):
+def handle_question(list_characteristic_of_person, user):
 
     #lấy mục đích của người dùng 
-    list_symptom_of_person.append(user.purpose)
+    list_characteristic_of_person.append(user.purpose)
 
     #lấy tuổi của người dùng 
 
     list_age = [db.resultdacdiem[6], db.resultdacdiem[7],
                 db.resultdacdiem[8], db.resultdacdiem[9]]
     if user.age <= 18 and user.age >= 15:
-        list_symptom_of_person.append(list_age[0])
+        list_characteristic_of_person.append(list_age[0])
     elif user.age <= 30 and user.age >= 18:
-        list_symptom_of_person.append(list_age[1])
+        list_characteristic_of_person.append(list_age[1])
     elif user.age <= 50 and user.age >= 30:
-        list_symptom_of_person.append(list_age[2])
+        list_characteristic_of_person.append(list_age[2])
     else:
-        list_symptom_of_person.append(list_age[3])
+        list_characteristic_of_person.append(list_age[3])
 
     #lấy thời tiết khi mặc trang phục của người dùng
 
@@ -108,7 +121,7 @@ def handle_question(list_symptom_of_person, user):
     count = 0    
     for j in all_dd:
         if(j == user.weather_preference):
-            list_symptom_of_person.append(list_weather[count])
+            list_characteristic_of_person.append(list_weather[count])
         count += 1
 
     #lấy giới tính của người dùng
@@ -120,7 +133,7 @@ def handle_question(list_symptom_of_person, user):
     count = 0
     for j in all_dd:
         if(j == user.gender):
-            list_symptom_of_person.append(list_gender[count])
+            list_characteristic_of_person.append(list_gender[count])
         count += 1
 
     #lấy phong cách của người dùng
@@ -134,15 +147,15 @@ def handle_question(list_symptom_of_person, user):
     count = 0
     for j in all_dd:
         if(j == user.style):
-            list_symptom_of_person.append(list_style[count])
+            list_characteristic_of_person.append(list_style[count])
         count += 1
 
-    return list_symptom_of_person    
+    return list_characteristic_of_person    
 
 
 ################################################################
 # 6 phần suy diễn tiến
-def forward_chaining(rule, fact, goal, file_name,person):
+def forward_chaining(rule, fact, goal, file_name,user):
     fc = ForwardChaining(rule, fact, None, file_name)
 
     list_predicted_disease = [i for i in fc.facts if i[0] == "T"]
@@ -150,11 +163,11 @@ def forward_chaining(rule, fact, goal, file_name,person):
 
 ########################################################################
 # 7 phần suy diễn lùi
-def backward_chaining(luat_lui,list_symptom_of_person,list_predicted_disease,file_name ):
+def backward_chaining(luat_lui,list_characteristic_of_person,list_predicted_disease,file_name ):
     predictD=list_predicted_disease
     rule=luat_lui
     all_rule=db.getdacdiem()
-    fact_real=list_symptom_of_person_id
+    fact_real=list_characteristic_of_person_id
     trangphuc=0
     for g in predictD:
         goal=g
@@ -230,7 +243,7 @@ def question_weakness(goal):
         answer = validate.validate_input_number_form(input())
         print(f'-->Người dùng: Câu trả lời của tôi là {answer}')
         if(answer == '0'):
-            print("-->Chatbot : Cám ơn bạn đã sử dụng ChatBot")
+            print("-->Chatbot : Cám ơn bạn đã sử dụng Chatbot")
             break
         elif(int(answer) > count):
             print("-->Chatbot : Vui lòng nhập đúng số")
@@ -241,22 +254,22 @@ def question_weakness(goal):
 
 welcome_question()  # list các đối tượng triệu chứng
 user = question()
-list_symptom_of_person = []
-handle_question(list_symptom_of_person, user)
+list_characteristic_of_person = []
+handle_question(list_characteristic_of_person, user)
 
-list_symptom_of_person_id = [i['iddacdiem'] for i in list_symptom_of_person]
-list_symptom_of_person_id = list(set(list_symptom_of_person_id))
-list_symptom_of_person_id.sort()
+list_characteristic_of_person_id = [i['iddacdiem'] for i in list_characteristic_of_person]
+list_characteristic_of_person_id = list(set(list_characteristic_of_person_id))
+list_characteristic_of_person_id.sort()
 
 
-list_predicted_disease = forward_chaining(luat_tien, list_symptom_of_person_id, None, 'ex', person)
+list_predicted_disease = forward_chaining(luat_tien, list_characteristic_of_person_id, None, 'ex', user)
 print(list_predicted_disease)
 
 if len(list_predicted_disease)==0 :
     print("-->Chatbot : Xin lỗi chúng tôi không tìm được trang phục phù hợp.Cám ơn bạn đã sử dụng ChatBot")
     sys.exit()
 
-disease,list_symptom_of_person_id= backward_chaining(luat_lui,list_symptom_of_person_id,list_predicted_disease,"ex")
+disease,list_characteristic_of_person_id= backward_chaining(luat_lui,list_characteristic_of_person_id,list_predicted_disease,"ex")
     
 question_color(disease)
 question_weakness(disease)

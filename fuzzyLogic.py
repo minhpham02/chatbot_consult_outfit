@@ -17,16 +17,17 @@ mydb = mysql.connector.connect(
 user = User(None,None,None,None,None)
 
 def question():
-    print(f'-->Chatbot : sau đây là một vài câu hỏi chúng tôi dành cho bạn trước khi đưa ra tư vấn')
-    print(f'-->Chatbot : vui lòng trả lời câu hỏi theo gợi ý để chúng tôi có thể đưa ra tư vấn chính xác nhất dành cho bạn')
     
-    
-    print("-->Chatbot : bạn muốn lựa chọn trang phục đi đâu? ")
+    print("-->Chatbot : Bạn muốn lựa chọn trang phục đi đâu? ")
     print("Gợi ý : Đi làm công sở, Đi làm ngoài trời; Đi lễ tết; Đi sự kiện trang trọng; Đi sự kiện vui chơi, giải trí, thể thao; Đi sự kiện văn hóa, nghệ thuật")
     user.purpose = validate.validate_name(input())
     print(f'-->Người dùng: {user.purpose}')
 
     
+    print(f'-->Chatbot : sau đây là một vài câu hỏi chúng tôi dành cho bạn trước khi đưa ra tư vấn')
+    print(f'-->Chatbot : vui lòng trả lời câu hỏi theo gợi ý để chúng tôi có thể đưa ra tư vấn chính xác nhất dành cho bạn')
+
+
     print("-->Chatbot : tuổi của bạn hiện tại là bao nhiêu? ")
     user.age = (input())
     print(f'-->Người dùng: {user.age}')

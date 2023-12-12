@@ -225,40 +225,50 @@ class Validate:
                 print("-->Chatbot: Vui lòng nhập 1 số dương")
                 value = input()
 
-    def validate_phonenumber(self,value):
-        while (1):
+
+    def validate_gender(value):
+        while(1):
             valueGetRidOfSpace = ''.join(value.split(' '))
-            check = valueGetRidOfSpace.isnumeric()
-            if (check):
-                return valueGetRidOfSpace
+            lower_input = valueGetRidOfSpace.lower()
+
+            if lower_input == "nam" or lower_input == "nữ":
+                return lower_input
             else:
-                print("-->Chatbot: Vui lòng nhập 1 số điện thoại đúng định dạng")
+                print("-->Chatbot: Vui lòng nhập lại giới tính")
                 value = input()
 
-
-    def validate_email(self, email):
-        while (1):
-            regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-
-            if (re.fullmatch(regex, email)):
-                # print("Chatbot:Tôi đã nhận được thông tin Email của bạn")
-                return email
-
-            else:
-                print("-->Chatbot: Vui lòng nhập lại email")
-                email = input()
-
-    def validate_name(self, value):
-        while (1):
+    def validate_weather(value):
+        while(1):
             valueGetRidOfSpace = ''.join(value.split(' '))
+            lower_input = valueGetRidOfSpace.lower()
 
-            check = valueGetRidOfSpace.isalpha()
-            if (check):
-                # print("Tôi đã nhận được thông tin Tên của bạn")
-                return value
+            if lower_input == "thời tiết nóng" or lower_input == "thời tiết lạnh":
+                return lower_input
             else:
-                print("-->Chatbot: Vui lòng nhập lại tên ! ")
+                print("-->Chatbot: Vui lòng nhập lại theo đúng gợi ý")
                 value = input()
+
+    def validate_style(value):
+        while(1):
+            valueGetRidOfSpace = ''.join(value.split(' '))
+            lower_input = valueGetRidOfSpace.lower()
+
+            if lower_input == "phong cách đơn giản" or lower_input == "phong cách trang trọng" or lower_input == "phong cách năng động" or lower_input == "phong cách công sở" or lower_input == "phong cách cá tính":
+                return lower_input
+            else:
+                print("-->Chatbot: Vui lòng nhập lại theo đúng gợi ý")
+                value = input()
+
+    def validate_color(value):
+        while(1):
+            valueGetRidOfSpace = ''.join(value.split(' '))
+            lower_input = valueGetRidOfSpace.lower()
+
+            if lower_input == "da trắng" or lower_input == "da vàng" or lower_input == "da đen":
+                return lower_input
+            else:
+                print("-->Chatbot: Vui lòng nhập lại theo đúng gợi ý")
+                value = input()            
 
     def validate_binary_answer(self, value):
         acceptance_answer_lst = ['1', 'y', 'yes', 'co', 'có']
@@ -274,16 +284,6 @@ class Validate:
                     "-->Chatbot: Câu trả lời không hợp lệ. Vui lòng nhập lại câu trả lời")
                 value = input()
 
-
-class Person:
-    def __init__(self, name, phoneNumber, email):
-        self.name = name
-        self.phoneNumber = phoneNumber
-        self.email = email
-
-    def __str__(self):
-        return f"{self.name} - {self.phoneNumber} - {self.email}"
-
 class User:
     def __init__(self, purpose, age, weather_preference, gender, style):
         self.purpose = purpose
@@ -294,18 +294,6 @@ class User:
     def __str__(self):
         return f"{self.purpose} - {self.age} - {self.weather_preference} - {self.gender} - {self.style}"
 
-class Symptom:
-    def __init__(self, code, detail):
-        self.code = code
-        self.detail = detail
-
-
-def printTree(node, level=0):
-    if node != None:
-        printTree(node.left, level + 1)
-        print(' ' * 10 * level + '-> ' + str(node.value))
-        printTree(node.right, level + 1)
-        
 
 def searchindexrule(rule,goal):
     
