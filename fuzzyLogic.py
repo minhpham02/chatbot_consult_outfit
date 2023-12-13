@@ -1,126 +1,76 @@
+chieuCaoToiThieu = 150
+chieuCaoToiDa = 200 
+canNangToiThieu = 40
+canNangToiDa = 100
 
-import mysql.connector
+chieuCaoTB = (chieuCaoToiThieu + chieuCaoToiDa) / 2
+canNangTB = (canNangToiThieu + canNangToiDa) / 2
 
-from class_chatbot import *
+class XacSuat:
+    def __init__(self):
+        self.thap = 0
+        self.trungbinh = 0
+        self.cao = 0
 
-db = ConvertData()
-db.convertdacdiem()
-validate = Validate()
+class Size:
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Nkok!minh36",
-    database="testcht"
-)
+    def size(self, chieuCao, canNang):
+        self.S = 0
+        self.M = 0
+        self.L = 0    
+        self.X = 0
+        self.XL = 0
+        self.XXL = 0
 
-user = User(None,None,None,None,None)
+        result = ketQua(chieuCao, canNang) 
+        
+def xac_suat(c_chieuCao, c_canNang, chieuCao, canNang):
+    if chieuCao < chieuCaoToiThieu:
+       c_chieuCao.thap = 1
+    elif chieuCao >= canNangToiThieu and chieuCao < chieuCaoTB:
+        c_chieuCao.trungbinh = 2 * (chieuCao - chieuCaoToiThieu) / (chieuCaoToiDa - chieuCaoToiThieu)
+        c_chieuCao.thap = 1 - c_chieuCao.trungbinh
+    elif chieuCao >= chieuCaoTB and chieuCao <= chieuCaoToiDa:
+        c_chieuCao.cao = 2 * (chieuCaoToiDa - chieuCao) / (chieuCaoToiDa - chieuCaoToiThieu)
+        c_chieuCao.binh_thuong = 1 - c_chieuCao.cao
+    elif chieuCao >= chieuCaoToiDa:
+        c_chieuCao.cao = 1
 
-def question():
-    
-    print("-->Chatbot : Bạn muốn lựa chọn trang phục đi đâu? ")
-    print("Gợi ý : Đi làm công sở, Đi làm ngoài trời; Đi lễ tết; Đi sự kiện trang trọng; Đi sự kiện vui chơi, giải trí, thể thao; Đi sự kiện văn hóa, nghệ thuật")
-    user.purpose = validate.validate_name(input())
-    print(f'-->Người dùng: {user.purpose}')
+    if canNang < canNangToiThieu:
+       c_canNang.thap = 1
+    elif canNang >= canNangToiThieu and canNang < canNangTB:
+        c_canNang.trungbinh = 2 * (canNang - canNangToiThieu) / (canNangToiDa - canNangToiThieu)
+        c_canNang.thap = 1 - c_canNang.trungbinh
+    elif canNang >= canNangTB and canNang <= canNangToiDa:
+        c_canNang.cao = 2 * (canNangToiDa - canNang) / (canNangToiDa - canNangToiThieu)
+        c_canNang.binh_thuong = 1 - c_canNang.cao
+    elif canNang >= canNangToiDa:
+        c_canNang.cao = 1    
+       
+def ketQua(chieuCao, canNang):
+        
+    c_chieuCao = XacSuat()
+    c_canNang = XacSuat()
+    xac_suat(c_chieuCao, c_canNang, chieuCao, canNang)
+    size = Size()
+    size.S = (max(min(c_chieuCao.thap,c_canNang.thap),min(c_chieuCao.thap,c_canNang.trungbinh)))
+    size.M = (max(min(c_chieuCao.trungbinh, c_canNang.thap), min(c_chieuCao.thap,c_canNang.cao)))
+    size.L = (max(min(c_chieuCao.trungbinh, c_canNang.trungbinh), min(c_chieuCao.trungbinh,c_canNang.cao)))
+    size.X = (min(c_chieuCao.cao,c_canNang.thap))
+    size.XL = (min(c_chieuCao.cao,c_canNang.trungbinh))
+    size.XXL = (min(c_chieuCao.cao,c_canNang.cao))
 
-    
-    print(f'-->Chatbot : sau đây là một vài câu hỏi chúng tôi dành cho bạn trước khi đưa ra tư vấn')
-    print(f'-->Chatbot : vui lòng trả lời câu hỏi theo gợi ý để chúng tôi có thể đưa ra tư vấn chính xác nhất dành cho bạn')
+    probabilityMax = max(size.S,size.M,size.L,size.X,size.XL,size.XXL)
 
-
-    print("-->Chatbot : tuổi của bạn hiện tại là bao nhiêu? ")
-    user.age = (input())
-    print(f'-->Người dùng: {user.age}')
-
-    
-    print("-->Chatbot : giới tính của bạn là gì? ")
-    user.gender = validate.validate_name(input())
-    print(f'-->Người dùng: {user.gender}')
-
-    
-    print("-->Chatbot : bạn muốn tìm trang phục mặc trong thời tiết nào? ")
-    user.weather_preference = validate.validate_name(input())
-    print(f'-->Người dùng: {user.weather_preference}')
-    
-    
-    print("-->Chatbot : phong cách ăn mặc của bạn như thế nào? ")
-    user.style = validate.validate_name(input())
-    print(f'-->Người dùng: {user.style}')
-
-    return user
-
-def handle_question(list_symptom_of_person, user):
-
-    #lấy mục đích của người dùng 
-
-    list_purpose = [db.resultdacdiem[0], db.resultdacdiem[1], 
-                    db.resultdacdiem[2], db.resultdacdiem[3], 
-                    db.resultdacdiem[4], db.resultdacdiem[5]]
-    all_dd = []
-    for i in list_purpose:
-        all_dd.append(i["tendacdiem"])
-    count = 0    
-    for j in all_dd:
-        if(j == user.purpose):
-            list_symptom_of_person.append(list_purpose[count])
-        count += 1
-
-    #lấy tuổi của người dùng 
-
-    list_age = [db.resultdacdiem[6], db.resultdacdiem[7],
-                db.resultdacdiem[8], db.resultdacdiem[9]]
-    all_dd = []
-    for i in list_age:
-        all_dd.append(i["tendacdiem"])  
-    count = 0      
-    for j in all_dd:
-        if(j == user.age):
-            list_symptom_of_person.append(list_age[count])
-        count += 1
-
-    #lấy thời tiết khi mặc trang phục của người dùng
-
-    list_weather = [db.resultdacdiem[10], db.resultdacdiem[11]]
-    all_dd = []
-    for i in list_weather:
-        all_dd.append(i["tendacdiem"])  
-    count = 0    
-    for j in all_dd:
-        if(j == user.weather_preference):
-            list_symptom_of_person.append(list_weather[count])
-        count += 1
-
-    #lấy giới tính của người dùng
-
-    list_gender = [db.resultdacdiem[12], db.resultdacdiem[13]]
-    all_dd = []
-    for i in list_gender:
-        all_dd.append(i["tendacdiem"])  
-    count = 0
-    for j in all_dd:
-        if(j == user.gender):
-            list_symptom_of_person.append(list_gender[count])
-        count += 1
-
-    #lấy phong cách của người dùng
-
-    list_style = [db.resultdacdiem[14], db.resultdacdiem[15], 
-                  db.resultdacdiem[16], db.resultdacdiem[17], 
-                  db.resultdacdiem[18]]
-    all_dd = []
-    for i in list_style:
-        all_dd.append(i["tendacdiem"])   
-    count = 0
-    for j in all_dd:
-        if(j == user.style):
-            list_symptom_of_person.append(list_style[count])
-        count += 1
-
-    return list_symptom_of_person    
-
-
-
-user = question()
-list_symptom_of_person = []
-handle_question(list_symptom_of_person,user)
-print(list_symptom_of_person)
+    if probabilityMax == size.S:
+        return "Size S và số đo quần của bạn có thể là 27, 28, 29 tùy thuộc vào độ rộng của bụng"
+    elif probabilityMax == size.M:
+        return "Size M và số đo quần của bạn có thể là 28, 29, 30 tùy thuộc vào độ rộng của bụng"
+    elif probabilityMax == size.L:
+        return "Size L và số đo quần của bạn có thể là 29, 30, 31 tùy thuộc vào độ rộng của bụng"
+    elif probabilityMax == size.X:
+        return "Size X và số đo quần của bạn có thể là 30, 31, 32 tùy thuộc vào độ rộng của bụng"
+    elif probabilityMax == size.XL:
+        return "Size XL và số đo quần của bạn có thể là 31, 32, 33 tùy thuộc vào độ rộng của bụng"
+    else:
+        return "Size XXL và số đo quần của bạn có thể là 32, 33, 34 tùy thuộc vào độ rộng của bụng"        

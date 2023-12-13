@@ -17,7 +17,7 @@ class Rule:
         return "%s->%s" % (",".join(self.left), self.right)
 
 class BackwardChaining:
-    def __init__(self,rule,fact,goal,file_name):
+    def __init__(self,rule,fact,goal,file_name):# Khởi tạo
         self.output = ""
         self.output_file_name = None
         self.iteration = 0
@@ -36,7 +36,7 @@ class BackwardChaining:
         self.print_result(result)
 
         self.write_output(file_name)
-    def do_backward_chaining(self, goal, indent=""):# trả về giá trị true false caajp0 nhật cho result
+    def do_backward_chaining(self, goal, indent=""):# trả về giá trị true false cập nhật cho result
         ls=0 # Biến điều kiện, nếu ls==0 thì không có luật nào phù hợp với goal và fact thì trả về false
         for rule in self.rules:
             # ls=0
@@ -68,13 +68,13 @@ class BackwardChaining:
             return False
         else:
             return True
-    # def get_s_in_fact(self):
+    
 
-    def print_step(self, goal, indent, msg):#indent : dấu gạch ngang
+    def print_step(self, goal, indent, msg):# In các bước
         self.iteration += 1
         self.output += str(self.iteration).rjust(3, " ") + ") %sGoal %s. " % (indent, goal) + msg + "\n"
 
-    def read_data(self, file_name):
+    def read_data(self, file_name): # Đọc dữ liệu từ db
         rules = []
         facts = []
         goal = None
@@ -99,13 +99,13 @@ class BackwardChaining:
                 rules.append(Rule(left, right)) # thêm luật đó vào mảng rules
 
             if read_state == 1:
-                facts = line # đây là các triệu chứng thực tế đã gặp
+                facts = line 
 
             if read_state == 2:
                 goal = line[0]
 
         return rules, facts, goal# rule là 1 list các Rule(left, right), facts là 1 dòng , goal là 1 ký tự
-    def read_rule(self,rule):
+    def read_rule(self,rule): # Lấy luật
         new_rule=[]
         id=0
         for i in rule:
@@ -116,7 +116,7 @@ class BackwardChaining:
             new_rule.append(Rule(left,right))
         # print(new_rule)
         return new_rule
-    def read_facts(self,line):
+    def read_facts(self,line): # Lấy đặc điểm
         ad=[]
         for i in line:
             ad.append(i)
@@ -128,7 +128,7 @@ class BackwardChaining:
         self.output += "\n  2) Các đặc điểm lựa chọn trang phục của người dùng\n    %s.\n\n" % ", ".join(facts)
         self.output += "  3) Trang phục dự đoán\n    %s.\n\n" % goal
 
-    def print_result(self, result): # part 3
+    def print_result(self, result):
         if result is not False:
 
             if len(self.road) == 0:

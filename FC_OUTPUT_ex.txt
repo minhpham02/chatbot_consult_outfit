@@ -4,183 +4,262 @@ PART 1. Dữ liệu (Luật)
     R2: Y01->TP2
     R3: Y01->TP4
     R4: Y10->TP1
-    R5: Y10->TP5
-    R6: Y10->TP6
-    R7: Y11->TP1
-    R8: Y11->TP5
-    R9: Y11->TP6
-    R10: Y11->TP7
-    R11: Y12->TP2
-    R12: Y12->TP3
-    R13: Y12->TP4
-    R14: Y12->TP5
-    R15: Y13->TP1
-    R16: Y13->TP3
-    R17: Y13->TP7
-    R18: Y14->TP2
-    R19: Y14->TP3
-    R20: Y14->TP4
-    R21: Y14->TP5
-    R22: Y14->TP6
+    R5: Y10->TP4
+    R6: Y10->TP5
+    R7: Y10->TP6
+    R8: Y11->TP1
+    R9: Y11->TP5
+    R10: Y11->TP6
+    R11: Y12->TP1
+    R12: Y12->TP5
+    R13: Y12->TP6
+    R14: Y12->TP7
+    R15: Y12->TP8
+    R16: Y13->TP2
+    R17: Y13->TP3
+    R18: Y13->TP4
+    R19: Y13->TP5
+    R20: Y13->TP9
+    R21: Y14->TP1
+    R22: Y14->TP3
     R23: Y14->TP7
-    R24: Y15->TP1
-    R25: Y15->TP3
-    R26: Y15->TP5
-    R27: Y15->TP7
-    R28: Y16->TP1
-    R29: Y16->TP5
-    R30: Y16->TP6
-    R31: Y17->TP2
-    R32: Y17->TP3
-    R33: Y17->TP7
-    R34: Y18->TP1
-    R35: Y18->TP7
-    R36: Y19->TP2
-    R37: Y19->TP4
-    R38: Y02->TP4
-    R39: Y02->TP7
-    R40: Y03->TP1
-    R41: Y03->TP5
-    R42: Y04->TP1
-    R43: Y04->TP4
-    R44: Y05->TP2
-    R45: Y05->TP3
-    R46: Y05->TP4
-    R47: Y06->TP6
-    R48: Y07->TP2
-    R49: Y07->TP3
-    R50: Y07->TP7
-    R51: Y08->TP1
-    R52: Y08->TP2
-    R53: Y08->TP3
-    R54: Y08->TP4
-    R55: Y08->TP7
+    R24: Y14->TP9
+    R25: Y15->TP2
+    R26: Y15->TP3
+    R27: Y15->TP4
+    R28: Y15->TP5
+    R29: Y15->TP6
+    R30: Y15->TP7
+    R31: Y15->TP8
+    R32: Y15->TP9
+    R33: Y16->TP1
+    R34: Y16->TP3
+    R35: Y16->TP5
+    R36: Y16->TP7
+    R37: Y16->TP8
+    R38: Y16->TP9
+    R39: Y17->TP1
+    R40: Y17->TP5
+    R41: Y17->TP6
+    R42: Y18->TP2
+    R43: Y18->TP3
+    R44: Y18->TP7
+    R45: Y18->TP8
+    R46: Y19->TP1
+    R47: Y19->TP7
+    R48: Y02->TP4
+    R49: Y02->TP7
+    R50: Y20->TP2
+    R51: Y20->TP4
+    R52: Y03->TP1
+    R53: Y03->TP5
+    R54: Y04->TP1
+    R55: Y04->TP4
+    R56: Y05->TP2
+    R57: Y05->TP3
+    R58: Y05->TP4
+    R59: Y06->TP6
+    R60: Y07->TP3
+    R61: Y07->TP8
+    R62: Y07->TP9
+    R63: Y08->TP2
+    R64: Y08->TP3
+    R65: Y08->TP7
+    R66: Y08->TP8
+    R67: Y08->TP9
 
-  2) Facts Y01, Y08, Y11, Y13, Y15.
+  2) Facts Y01, Y11, Y12, Y14, Y16.
 
   3) Goal None
 
 PART 2. Suy Diễn
   1 ITERATION
-    R1:Y01->TP1 được áp dụng. Cập nhật flag1. Facts Y01, Y08, Y11, Y13, Y15 suy ra TP1.
+    R1:Y01->TP1 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1.
 
   2 ITERATION
     R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
-    R2:Y01->TP2 được áp dụng. Cập nhật flag1. Facts Y01, Y08, Y11, Y13, Y15 suy ra TP1, TP2.
+    R2:Y01->TP2 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1, TP2.
 
   3 ITERATION
     R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
     R2:Y01->TP2 bỏ qua, vì flag1 đã được cập nhật.
-    R3:Y01->TP4 được áp dụng. Cập nhật flag1. Facts Y01, Y08, Y11, Y13, Y15 suy ra TP1, TP2, TP4.
+    R3:Y01->TP4 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1, TP2, TP4.
 
   4 ITERATION
     R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
     R2:Y01->TP2 bỏ qua, vì flag1 đã được cập nhật.
     R3:Y01->TP4 bỏ qua, vì flag1 đã được cập nhật.
     R4:Y10->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R5:Y10->TP5 Không được áp dụng, vì thiếu fact: Y10
-    R6:Y10->TP6 Không được áp dụng, vì thiếu fact: Y10
-    R7:Y11->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R8:Y11->TP5 được áp dụng. Cập nhật flag1. Facts Y01, Y08, Y11, Y13, Y15 suy ra TP1, TP2, TP4, TP5.
+    R5:Y10->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
+    R6:Y10->TP5 Không được áp dụng, vì thiếu fact: Y10
+    R7:Y10->TP6 Không được áp dụng, vì thiếu fact: Y10
+    R8:Y11->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
+    R9:Y11->TP5 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1, TP2, TP4, TP5.
 
   5 ITERATION
     R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
     R2:Y01->TP2 bỏ qua, vì flag1 đã được cập nhật.
     R3:Y01->TP4 bỏ qua, vì flag1 đã được cập nhật.
     R4:Y10->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R5:Y10->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
-    R6:Y10->TP6 Không được áp dụng, vì thiếu fact: Y10
-    R7:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R8:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
-    R9:Y11->TP6 được áp dụng. Cập nhật flag1. Facts Y01, Y08, Y11, Y13, Y15 suy ra TP1, TP2, TP4, TP5, TP6.
+    R5:Y10->TP4 bỏ qua, vì flag2 đã được cập nhật.
+    R6:Y10->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
+    R7:Y10->TP6 Không được áp dụng, vì thiếu fact: Y10
+    R8:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R9:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
+    R10:Y11->TP6 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1, TP2, TP4, TP5, TP6.
 
   6 ITERATION
     R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
     R2:Y01->TP2 bỏ qua, vì flag1 đã được cập nhật.
     R3:Y01->TP4 bỏ qua, vì flag1 đã được cập nhật.
     R4:Y10->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R5:Y10->TP5 bỏ qua, vì flag2 đã được cập nhật.
-    R6:Y10->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
-    R7:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R8:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
-    R9:Y11->TP6 bỏ qua, vì flag1 đã được cập nhật.
-    R10:Y11->TP7 được áp dụng. Cập nhật flag1. Facts Y01, Y08, Y11, Y13, Y15 suy ra TP1, TP2, TP4, TP5, TP6, TP7.
+    R5:Y10->TP4 bỏ qua, vì flag2 đã được cập nhật.
+    R6:Y10->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R7:Y10->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
+    R8:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R9:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
+    R10:Y11->TP6 bỏ qua, vì flag1 đã được cập nhật.
+    R11:Y12->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
+    R12:Y12->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
+    R13:Y12->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
+    R14:Y12->TP7 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1, TP2, TP4, TP5, TP6, TP7.
 
   7 ITERATION
     R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
     R2:Y01->TP2 bỏ qua, vì flag1 đã được cập nhật.
     R3:Y01->TP4 bỏ qua, vì flag1 đã được cập nhật.
     R4:Y10->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R5:Y10->TP5 bỏ qua, vì flag2 đã được cập nhật.
-    R6:Y10->TP6 bỏ qua, vì flag2 đã được cập nhật.
-    R7:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R8:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
-    R9:Y11->TP6 bỏ qua, vì flag1 đã được cập nhật.
-    R10:Y11->TP7 bỏ qua, vì flag1 đã được cập nhật.
-    R11:Y12->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
-    R12:Y12->TP3 Không được áp dụng, vì thiếu fact: Y12
-    R13:Y12->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
-    R14:Y12->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
-    R15:Y13->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R16:Y13->TP3 được áp dụng. Cập nhật flag1. Facts Y01, Y08, Y11, Y13, Y15 suy ra TP1, TP2, TP4, TP5, TP6, TP7, TP3.
+    R5:Y10->TP4 bỏ qua, vì flag2 đã được cập nhật.
+    R6:Y10->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R7:Y10->TP6 bỏ qua, vì flag2 đã được cập nhật.
+    R8:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R9:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
+    R10:Y11->TP6 bỏ qua, vì flag1 đã được cập nhật.
+    R11:Y12->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R12:Y12->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R13:Y12->TP6 bỏ qua, vì flag2 đã được cập nhật.
+    R14:Y12->TP7 bỏ qua, vì flag1 đã được cập nhật.
+    R15:Y12->TP8 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1, TP2, TP4, TP5, TP6, TP7, TP8.
 
   8 ITERATION
     R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
     R2:Y01->TP2 bỏ qua, vì flag1 đã được cập nhật.
     R3:Y01->TP4 bỏ qua, vì flag1 đã được cập nhật.
     R4:Y10->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R5:Y10->TP5 bỏ qua, vì flag2 đã được cập nhật.
-    R6:Y10->TP6 bỏ qua, vì flag2 đã được cập nhật.
-    R7:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R8:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
-    R9:Y11->TP6 bỏ qua, vì flag1 đã được cập nhật.
-    R10:Y11->TP7 bỏ qua, vì flag1 đã được cập nhật.
-    R11:Y12->TP2 bỏ qua, vì flag2 đã được cập nhật.
-    R12:Y12->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
-    R13:Y12->TP4 bỏ qua, vì flag2 đã được cập nhật.
-    R14:Y12->TP5 bỏ qua, vì flag2 đã được cập nhật.
-    R15:Y13->TP1 bỏ qua, vì flag2 đã được cập nhật.
-    R16:Y13->TP3 bỏ qua, vì flag1 đã được cập nhật.
-    R17:Y13->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
-    R18:Y14->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
-    R19:Y14->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
-    R20:Y14->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
-    R21:Y14->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
-    R22:Y14->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
+    R5:Y10->TP4 bỏ qua, vì flag2 đã được cập nhật.
+    R6:Y10->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R7:Y10->TP6 bỏ qua, vì flag2 đã được cập nhật.
+    R8:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R9:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
+    R10:Y11->TP6 bỏ qua, vì flag1 đã được cập nhật.
+    R11:Y12->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R12:Y12->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R13:Y12->TP6 bỏ qua, vì flag2 đã được cập nhật.
+    R14:Y12->TP7 bỏ qua, vì flag1 đã được cập nhật.
+    R15:Y12->TP8 bỏ qua, vì flag1 đã được cập nhật.
+    R16:Y13->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
+    R17:Y13->TP3 Không được áp dụng, vì thiếu fact: Y13
+    R18:Y13->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
+    R19:Y13->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
+    R20:Y13->TP9 Không được áp dụng, vì thiếu fact: Y13
+    R21:Y14->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
+    R22:Y14->TP3 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1, TP2, TP4, TP5, TP6, TP7, TP8, TP3.
+
+  9 ITERATION
+    R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
+    R2:Y01->TP2 bỏ qua, vì flag1 đã được cập nhật.
+    R3:Y01->TP4 bỏ qua, vì flag1 đã được cập nhật.
+    R4:Y10->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R5:Y10->TP4 bỏ qua, vì flag2 đã được cập nhật.
+    R6:Y10->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R7:Y10->TP6 bỏ qua, vì flag2 đã được cập nhật.
+    R8:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R9:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
+    R10:Y11->TP6 bỏ qua, vì flag1 đã được cập nhật.
+    R11:Y12->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R12:Y12->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R13:Y12->TP6 bỏ qua, vì flag2 đã được cập nhật.
+    R14:Y12->TP7 bỏ qua, vì flag1 đã được cập nhật.
+    R15:Y12->TP8 bỏ qua, vì flag1 đã được cập nhật.
+    R16:Y13->TP2 bỏ qua, vì flag2 đã được cập nhật.
+    R17:Y13->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
+    R18:Y13->TP4 bỏ qua, vì flag2 đã được cập nhật.
+    R19:Y13->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R20:Y13->TP9 Không được áp dụng, vì thiếu fact: Y13
+    R21:Y14->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R22:Y14->TP3 bỏ qua, vì flag1 đã được cập nhật.
     R23:Y14->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
-    R24:Y15->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R25:Y15->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
-    R26:Y15->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
-    R27:Y15->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
-    R28:Y16->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R29:Y16->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
-    R30:Y16->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
-    R31:Y17->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
-    R32:Y17->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
-    R33:Y17->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
-    R34:Y18->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R35:Y18->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
-    R36:Y19->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
-    R37:Y19->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
-    R38:Y02->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
-    R39:Y02->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
-    R40:Y03->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R41:Y03->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
-    R42:Y04->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R43:Y04->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
-    R44:Y05->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
-    R45:Y05->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
-    R46:Y05->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
-    R47:Y06->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
-    R48:Y07->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
-    R49:Y07->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
-    R50:Y07->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
-    R51:Y08->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
-    R52:Y08->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
-    R53:Y08->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
-    R54:Y08->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
-    R55:Y08->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
+    R24:Y14->TP9 được áp dụng. Cập nhật flag1. Facts Y01, Y11, Y12, Y14, Y16 suy ra TP1, TP2, TP4, TP5, TP6, TP7, TP8, TP3, TP9.
+
+  10 ITERATION
+    R1:Y01->TP1 bỏ qua, vì flag1 đã được cập nhật.
+    R2:Y01->TP2 bỏ qua, vì flag1 đã được cập nhật.
+    R3:Y01->TP4 bỏ qua, vì flag1 đã được cập nhật.
+    R4:Y10->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R5:Y10->TP4 bỏ qua, vì flag2 đã được cập nhật.
+    R6:Y10->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R7:Y10->TP6 bỏ qua, vì flag2 đã được cập nhật.
+    R8:Y11->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R9:Y11->TP5 bỏ qua, vì flag1 đã được cập nhật.
+    R10:Y11->TP6 bỏ qua, vì flag1 đã được cập nhật.
+    R11:Y12->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R12:Y12->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R13:Y12->TP6 bỏ qua, vì flag2 đã được cập nhật.
+    R14:Y12->TP7 bỏ qua, vì flag1 đã được cập nhật.
+    R15:Y12->TP8 bỏ qua, vì flag1 đã được cập nhật.
+    R16:Y13->TP2 bỏ qua, vì flag2 đã được cập nhật.
+    R17:Y13->TP3 bỏ qua, vì flag2 đã được cập nhật.
+    R18:Y13->TP4 bỏ qua, vì flag2 đã được cập nhật.
+    R19:Y13->TP5 bỏ qua, vì flag2 đã được cập nhật.
+    R20:Y13->TP9 không áp dụng, vì TP9 nắm trong số các facts. Cập nhật flag2.
+    R21:Y14->TP1 bỏ qua, vì flag2 đã được cập nhật.
+    R22:Y14->TP3 bỏ qua, vì flag1 đã được cập nhật.
+    R23:Y14->TP7 bỏ qua, vì flag2 đã được cập nhật.
+    R24:Y14->TP9 bỏ qua, vì flag1 đã được cập nhật.
+    R25:Y15->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
+    R26:Y15->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
+    R27:Y15->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
+    R28:Y15->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
+    R29:Y15->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
+    R30:Y15->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
+    R31:Y15->TP8 không áp dụng, vì TP8 nắm trong số các facts. Cập nhật flag2.
+    R32:Y15->TP9 không áp dụng, vì TP9 nắm trong số các facts. Cập nhật flag2.
+    R33:Y16->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
+    R34:Y16->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
+    R35:Y16->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
+    R36:Y16->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
+    R37:Y16->TP8 không áp dụng, vì TP8 nắm trong số các facts. Cập nhật flag2.
+    R38:Y16->TP9 không áp dụng, vì TP9 nắm trong số các facts. Cập nhật flag2.
+    R39:Y17->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
+    R40:Y17->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
+    R41:Y17->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
+    R42:Y18->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
+    R43:Y18->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
+    R44:Y18->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
+    R45:Y18->TP8 không áp dụng, vì TP8 nắm trong số các facts. Cập nhật flag2.
+    R46:Y19->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
+    R47:Y19->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
+    R48:Y02->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
+    R49:Y02->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
+    R50:Y20->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
+    R51:Y20->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
+    R52:Y03->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
+    R53:Y03->TP5 không áp dụng, vì TP5 nắm trong số các facts. Cập nhật flag2.
+    R54:Y04->TP1 không áp dụng, vì TP1 nắm trong số các facts. Cập nhật flag2.
+    R55:Y04->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
+    R56:Y05->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
+    R57:Y05->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
+    R58:Y05->TP4 không áp dụng, vì TP4 nắm trong số các facts. Cập nhật flag2.
+    R59:Y06->TP6 không áp dụng, vì TP6 nắm trong số các facts. Cập nhật flag2.
+    R60:Y07->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
+    R61:Y07->TP8 không áp dụng, vì TP8 nắm trong số các facts. Cập nhật flag2.
+    R62:Y07->TP9 không áp dụng, vì TP9 nắm trong số các facts. Cập nhật flag2.
+    R63:Y08->TP2 không áp dụng, vì TP2 nắm trong số các facts. Cập nhật flag2.
+    R64:Y08->TP3 không áp dụng, vì TP3 nắm trong số các facts. Cập nhật flag2.
+    R65:Y08->TP7 không áp dụng, vì TP7 nắm trong số các facts. Cập nhật flag2.
+    R66:Y08->TP8 không áp dụng, vì TP8 nắm trong số các facts. Cập nhật flag2.
+    R67:Y08->TP9 không áp dụng, vì TP9 nắm trong số các facts. Cập nhật flag2.
 
 PART 3. Kết quả
-  1) Kết quả là : Y01, Y08, Y11, Y13, Y15, TP1, TP2, TP4, TP5, TP6, TP7, TP3 .
-  2) Đường đi suy diễn được là:R1, R2, R3, R8, R9, R10, R16
+  1) Kết quả là : Y01, Y11, Y12, Y14, Y16, TP1, TP2, TP4, TP5, TP6, TP7, TP8, TP3, TP9 .
+  2) Đường đi suy diễn được là:R1, R2, R3, R9, R10, R14, R15, R22, R24

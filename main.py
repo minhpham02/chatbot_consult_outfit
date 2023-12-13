@@ -5,7 +5,7 @@ from backward_chaining import BackwardChaining
 from forward_chaining import ForwardChaining
 from class_chatbot import *
 from class_chatbot import ConvertData
-
+from fuzzyLogic import *
 
 
 # biến khởi tạo
@@ -20,30 +20,29 @@ db.getfc()
 db.getbc()
 luat_lui = db.groupbc()
 luat_tien = db.groupfc()
-
+user = User(None,None,None,None,None)
 
 
 
 #################################################
-# 1. câu hỏi chào hỏi
+# 1. Người dùng lựa chọn mục đích sử dụng trang phục
 def welcome_question():
     print("-->Chatbot: Xin chào, tôi là chatbot tư vấn trang phục!")
-
-user = User(None,None,None,None,None)
-
+# 2. Các câu hỏi để lấy thêm thông tin tư vấn
 def question():
 
     
     AllSymLst = [db.resultdacdiem[0], db.resultdacdiem[1],
                  db.resultdacdiem[2], db.resultdacdiem[3],
-                 db.resultdacdiem[4],db.resultdacdiem[5]]
+                 db.resultdacdiem[4],db.resultdacdiem[5],
+                 db.resultdacdiem[6]]
 
     NewAllSymLst = []
 
     for i in AllSymLst:
         NewAllSymLst.append(i["iddacdiem"])
             
-    print(f'-->Chatbot: Trang phục bạn muốn tư vấn sử dụng cho sự kiện: ')
+    print(f'-->Chatbot: Mời bạn chọn mục đích để tư vấn trang phục: ')
     print(f'-->Chatbot: (Nhập số thứ tự để chọn)')
 
     while(1):
@@ -54,8 +53,8 @@ def question():
         answer = validate.validate_input_number_form(input())
         print(f'-->Người dùng: Câu trả lời của tôi là {answer}')
 
-        if (int(answer) < 0 or int(answer) > 4):
-            print('-->Chatbot: Vui lòng nhập 1 số từ 0 tới 4')
+        if (int(answer) < 0 or int(answer) > 8):
+            print('-->Chatbot: Vui lòng nhập 1 số từ 1 tới 7')
             continue
         else:
             print(AllSymLst[int(answer)-1])
@@ -69,11 +68,11 @@ def question():
     while(1):
         age = validate.validate_input_number_form(input())
         print(f'-->Người dùng: {age}')
-        if age > 100:
+        if int(age) > 100:
             print("-->Chatbot : Số tuổi không hợp lệ. Vui lòng nhập lại ")
             continue
         else:
-            user.age = age
+            user.age = int(age)
             break
 
     print("-->Chatbot : Giới tính của bạn là gì? ")
@@ -93,7 +92,7 @@ def question():
     print(f'-->Người dùng: {user.style}')
 
     return user
-
+# 3. Xử lý các câu hỏi để lấy thông tin từ db
 def handle_question(list_characteristic_of_person, user):
 
     #lấy mục đích của người dùng 
@@ -101,8 +100,8 @@ def handle_question(list_characteristic_of_person, user):
 
     #lấy tuổi của người dùng 
 
-    list_age = [db.resultdacdiem[6], db.resultdacdiem[7],
-                db.resultdacdiem[8], db.resultdacdiem[9]]
+    list_age = [db.resultdacdiem[7], db.resultdacdiem[8],
+                db.resultdacdiem[9], db.resultdacdiem[10]]
     if user.age <= 18 and user.age >= 15:
         list_characteristic_of_person.append(list_age[0])
     elif user.age <= 30 and user.age >= 18:
@@ -114,7 +113,7 @@ def handle_question(list_characteristic_of_person, user):
 
     #lấy thời tiết khi mặc trang phục của người dùng
 
-    list_weather = [db.resultdacdiem[10], db.resultdacdiem[11]]
+    list_weather = [db.resultdacdiem[11], db.resultdacdiem[12]]
     all_dd = []
     for i in list_weather:
         all_dd.append(i["tendacdiem"])  
@@ -126,7 +125,7 @@ def handle_question(list_characteristic_of_person, user):
 
     #lấy giới tính của người dùng
 
-    list_gender = [db.resultdacdiem[12], db.resultdacdiem[13]]
+    list_gender = [db.resultdacdiem[13], db.resultdacdiem[14]]
     all_dd = []
     for i in list_gender:
         all_dd.append(i["tendacdiem"])  
@@ -138,9 +137,9 @@ def handle_question(list_characteristic_of_person, user):
 
     #lấy phong cách của người dùng
 
-    list_style = [db.resultdacdiem[14], db.resultdacdiem[15], 
-                  db.resultdacdiem[16], db.resultdacdiem[17], 
-                  db.resultdacdiem[18]]
+    list_style = [db.resultdacdiem[15], db.resultdacdiem[16], 
+                  db.resultdacdiem[17], db.resultdacdiem[18], 
+                  db.resultdacdiem[19]]
     all_dd = []
     for i in list_style:
         all_dd.append(i["tendacdiem"])   
@@ -152,19 +151,18 @@ def handle_question(list_characteristic_of_person, user):
 
     return list_characteristic_of_person    
 
-
 ################################################################
-# 6 phần suy diễn tiến
+# 4. phần suy diễn tiến
 def forward_chaining(rule, fact, goal, file_name,user):
     fc = ForwardChaining(rule, fact, None, file_name)
 
-    list_predicted_disease = [i for i in fc.facts if i[0] == "T"]
-    return list_predicted_disease
+    list_predicted_outfit = [i for i in fc.facts if i[0] == "T"]
+    return list_predicted_outfit
 
 ########################################################################
-# 7 phần suy diễn lùi
-def backward_chaining(luat_lui,list_characteristic_of_person,list_predicted_disease,file_name ):
-    predictD=list_predicted_disease
+# 5. phần suy diễn lùi
+def backward_chaining(luat_lui,list_characteristic_of_person,list_predicted_outfit,file_name ):
+    predictD=list_predicted_outfit
     rule=luat_lui
     all_rule=db.getdacdiem()
     fact_real=list_characteristic_of_person_id
@@ -178,21 +176,22 @@ def backward_chaining(luat_lui,list_characteristic_of_person,list_predicted_dise
         b=BackwardChaining(rule,fact_real,goal,file_name) # kết luận trong trường hợp các luât đã suy ra đk luôn
         
         if b.result1==True:# đoạn đầu
-            print("-->Chatbot : Trang phục chúng tôi dự đoán là {}- {}".format(goal,D['tentrangphuc']))
+            print("-->Chatbot : Trang phục chúng tôi tư vấn cho bạn là {}- {}".format(goal,D['tentrangphuc']))
             print(f"-->Chatbot : Phụ kiện")
             D['phukien']=D['phukien'].replace("/n","\n")
             print(f"-->Chatbot : {D['phukien']}")
             return goal,fact_real     
     if trangphuc==0:
-        print(f"-->Chatbot : Xin lỗi chúng tôi không tìm được trang phục phù hợp.Cám ơn bạn đã sử dụng ChatBot")
+        print(f"-->Chatbot : Xin lỗi chúng tôi không tìm được trang phục phù hợp trong bộ dữ liệu với những đặc điểm của bạn.Cám ơn bạn đã sử dụng Chatbot")
         sys.exit()
 
+# 6. Câu hỏi để tư vấn về màu sắc trang phục
 def question_color(goal):
 
     print("-->Chatbot : Tiếp theo chúng tôi sẽ tư vấn về màu sắc trang phục cho bạn?")
     print("-->Chatbot : Màu da của bạn thuộc loại nào sau đây?")
-    print("-->Chatbot : Da trắng - Da ngăm đen - Da vàng")
-    color = (input())
+    print("-->Chatbot : Da trắng - Da ngăm đen - Da vàng") 
+    color = validate.validate_color(input())
     print(f'-->Người dùng: {color}')
 
     list_color = [db.resultmausac[0], db.resultmausac[1], db.resultmausac[2]
@@ -215,7 +214,7 @@ def question_color(goal):
         if(all_dd[j] == goal and all_1[j] == color):
             list.append(all[j])
     print(list)
-
+# 7. Câu hỏi để đưa ra lời khuyên về cách khắc phục khuyết điểm dựa trên trang phục
 def question_weakness(goal):
     print("-->Chatbot : Nếu bạn có những khuyết điểm sau đây, hãy lựa chọn để chúng tôi có thể đưa ra tư vấn về cách khắc phục dựa trên bộ trang phục chúng tôi dự đoán")
     print("-->Chatbot : Bạn có thể bỏ qua nếu không có khuyết điểm")
@@ -243,7 +242,7 @@ def question_weakness(goal):
         answer = validate.validate_input_number_form(input())
         print(f'-->Người dùng: Câu trả lời của tôi là {answer}')
         if(answer == '0'):
-            print("-->Chatbot : Cám ơn bạn đã sử dụng Chatbot")
+            #print("-->Chatbot : Cám ơn bạn đã sử dụng Chatbot")
             break
         elif(int(answer) > count):
             print("-->Chatbot : Vui lòng nhập đúng số")
@@ -251,6 +250,17 @@ def question_weakness(goal):
         else:
             print(all_lk[int(answer)-1])
             break    
+# 8. Câu hỏi để tư vấn size quần áo
+def question_size():
+    print(f'-->Chatbot: Để có một bộ trang phục vừa vặn với cơ thể của bạn chúng tôi sẽ tư vấn về size quần áo cho bạn')
+    print(f' Vui lòng nhập chiều cao và cân nặng để được tư vấn')
+    # Nhập chiều cao và cân nặng từ người dùng
+    chieu_cao = float(input("Nhập chiều cao của bạn (cm): "))
+    can_nang = float(input("Nhập cân nặng của bạn (kg): "))
+    print(f'-->Chatbot: Size áo phù hợp với bạn là {ketQua(chieu_cao, can_nang)}')
+    print(f'-->Chatbot: Bạn có thể mặc thêm hoặc giảm 1 size tùy thuộc vào cơ thể để có một bộ trang phục ưng ý nhất')
+    print(f'-->Chatbot: Trên đây là toàn bộ tư vấn của chúng tôi về trang phục. Cảm ơn bạn đã sử dụng chatbot')
+
 
 welcome_question()  # list các đối tượng triệu chứng
 user = question()
@@ -262,15 +272,15 @@ list_characteristic_of_person_id = list(set(list_characteristic_of_person_id))
 list_characteristic_of_person_id.sort()
 
 
-list_predicted_disease = forward_chaining(luat_tien, list_characteristic_of_person_id, None, 'ex', user)
-print(list_predicted_disease)
+list_predicted_outfit = forward_chaining(luat_tien, list_characteristic_of_person_id, None, 'ex', user)
+print(list_predicted_outfit)
 
-if len(list_predicted_disease)==0 :
+if len(list_predicted_outfit)==0 :
     print("-->Chatbot : Xin lỗi chúng tôi không tìm được trang phục phù hợp.Cám ơn bạn đã sử dụng ChatBot")
     sys.exit()
 
-disease,list_characteristic_of_person_id= backward_chaining(luat_lui,list_characteristic_of_person_id,list_predicted_disease,"ex")
+outfit,list_characteristic_of_person_id= backward_chaining(luat_lui,list_characteristic_of_person_id,list_predicted_outfit,"ex")
     
-question_color(disease)
-question_weakness(disease)
-#question_size()
+question_color(outfit)
+question_weakness(outfit)
+question_size()

@@ -1,12 +1,11 @@
 import re
 
 import mysql.connector
-import json
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="Nkok!minh36",
-    database="testcht"
+    database="chtdttt"
 )
 
 
@@ -28,7 +27,7 @@ class ConvertData:
         Lấy dữ liệu bảng trang phục
         """
         dbtrangphuc = mydb.cursor()
-        dbtrangphuc.execute("SELECT * FROM testcht.trangphuc;")
+        dbtrangphuc.execute("SELECT * FROM chtdttt.trangphuc;")
         trangphuc = dbtrangphuc.fetchall()
         dirtrangphuc = {}
         for i in trangphuc:
@@ -43,7 +42,7 @@ class ConvertData:
         Lấy dữ liệu từ bảng đặc điểm
         """
         dbdacdiem = mydb.cursor()
-        dbdacdiem.execute("SELECT * FROM testcht.dacdiem;")
+        dbdacdiem.execute("SELECT * FROM chtdttt.dacdiem;")
         dacdiem = dbdacdiem.fetchall()
         dirdacdiem = {}
         for i in dacdiem:
@@ -54,7 +53,7 @@ class ConvertData:
     
     def convertkhuyetdiem(self):
         dbkhuyetdiem = mydb.cursor()
-        dbkhuyetdiem.execute("SELECT * FROM testcht.khuyetdiem;")
+        dbkhuyetdiem.execute("SELECT * FROM chtdttt.khuyetdiem;")
         khuyetdiem = dbkhuyetdiem.fetchall()
         dirkhuyetdiem = {}
 
@@ -67,7 +66,7 @@ class ConvertData:
     
     def convertmausac(self):    
         dbmausac = mydb.cursor()
-        dbmausac.execute("SELECT * FROM testcht.mauda;")
+        dbmausac.execute("SELECT * FROM chtdttt.mauda;")
         mausac = dbmausac.fetchall()
         dirmausac = {}
         
@@ -169,7 +168,7 @@ class ConvertData:
         Nhóm tất cả đặc điểm trong 1 trang phục
         """
         dbdacdiem=mydb.cursor()
-        dbdacdiem.execute("SELECT * FROM testcht.suydien order by idtrangphuc")
+        dbdacdiem.execute("SELECT * FROM chtdttt.suydien order by idtrangphuc")
         dttt=dbdacdiem.fetchall()
         trangphuc=[]
         tt=[]
@@ -226,7 +225,7 @@ class Validate:
                 value = input()
 
 
-    def validate_gender(value):
+    def validate_gender(self,value):
         while(1):
             valueGetRidOfSpace = ''.join(value.split(' '))
             lower_input = valueGetRidOfSpace.lower()
@@ -237,9 +236,9 @@ class Validate:
                 print("-->Chatbot: Vui lòng nhập lại giới tính")
                 value = input()
 
-    def validate_weather(value):
+    def validate_weather(self,value):
         while(1):
-            valueGetRidOfSpace = ''.join(value.split(' '))
+            valueGetRidOfSpace = ' '.join(value.split(' '))
             lower_input = valueGetRidOfSpace.lower()
 
             if lower_input == "thời tiết nóng" or lower_input == "thời tiết lạnh":
@@ -248,9 +247,9 @@ class Validate:
                 print("-->Chatbot: Vui lòng nhập lại theo đúng gợi ý")
                 value = input()
 
-    def validate_style(value):
+    def validate_style(self,value):
         while(1):
-            valueGetRidOfSpace = ''.join(value.split(' '))
+            valueGetRidOfSpace = ' '.join(value.split(' '))
             lower_input = valueGetRidOfSpace.lower()
 
             if lower_input == "phong cách đơn giản" or lower_input == "phong cách trang trọng" or lower_input == "phong cách năng động" or lower_input == "phong cách công sở" or lower_input == "phong cách cá tính":
@@ -259,12 +258,12 @@ class Validate:
                 print("-->Chatbot: Vui lòng nhập lại theo đúng gợi ý")
                 value = input()
 
-    def validate_color(value):
+    def validate_color(self,value):
         while(1):
-            valueGetRidOfSpace = ''.join(value.split(' '))
+            valueGetRidOfSpace = ' '.join(value.split(' '))
             lower_input = valueGetRidOfSpace.lower()
 
-            if lower_input == "da trắng" or lower_input == "da vàng" or lower_input == "da đen":
+            if lower_input == "da trắng" or lower_input == "da vàng" or lower_input == "da ngăm đen":
                 return lower_input
             else:
                 print("-->Chatbot: Vui lòng nhập lại theo đúng gợi ý")

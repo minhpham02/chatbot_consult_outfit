@@ -1,93 +1,157 @@
 PART 1. Dữ liệu
   1) Tập luật
-    R1: Y01,Y08,Y11,Y13,Y15->TP1
-    R2: Y01,Y07,Y12,Y14,Y17->TP1
-    R3: Y01,Y07,Y12,Y14,Y17->TP1
-    R4: Y01,Y08,Y12,Y14,Y17->TP1
-    R5: Y01,Y07,Y12,Y14,Y19->TP1
-    R6: Y01,Y08,Y12,Y14,Y19->TP1
-    R7: Y01,Y09,Y12,Y14,Y19->TP1
-    R8: Y02,Y08,Y12,Y14,Y19->TP1
-    R9: Y02,Y09,Y12,Y14,Y19->TP1
-    R10: Y02,Y07,Y11,Y13,Y15->TP1
-    R11: Y02,Y07,Y11,Y13,Y17->TP1
-    R12: Y01,Y08,Y11,Y13,Y16->TP1
-    R13: Y02,Y07,Y11,Y13,Y18->TP1
-    R14: Y02,Y07,Y11,Y15,Y02->TP1
-    R15: Y02,Y07,Y11,Y14,Y17->TP1
-    R16: Y02,Y07,Y11,Y14,Y18->TP1
-    R17: Y02,Y08,Y11,Y13,Y15->TP1
-    R18: Y02,Y08,Y11,Y13,Y17->TP1
-    R19: Y02,Y08,Y11,Y13,Y18->TP1
-    R20: Y13,Y01,Y08,Y11,Y18->TP1
-    R21: Y03,Y08,Y11,Y13,Y15->TP1
-    R22: Y03,Y08,Y11,Y13,Y16->TP1
-    R23: Y03,Y08,Y11,Y13,Y18->TP1
-    R24: Y03,Y09,Y11,Y13,Y15->TP1
-    R25: Y03,Y09,Y11,Y13,Y16->TP1
-    R26: Y03,Y09,Y11,Y13,Y18->TP1
-    R27: Y03,Y10,Y11,Y13,Y15->TP1
-    R28: Y03,Y10,Y11,Y13,Y16->TP1
-    R29: Y03,Y10,Y11,Y13,Y18->TP1
-    R30: Y18,Y01,Y08,Y11,Y13->TP1
-    R31: Y04,Y08,Y11,Y13,Y15->TP1
-    R32: Y04,Y08,Y11,Y13,Y16->TP1
-    R33: Y04,Y08,Y11,Y13,Y18->TP1
-    R34: Y01,Y09,Y11,Y13,Y16->TP1
-    R35: Y04,Y09,Y11,Y13,Y15->TP1
-    R36: Y04,Y09,Y11,Y13,Y16->TP1
-    R37: Y04,Y09,Y11,Y13,Y18->TP1
-    R38: Y04,Y10,Y11,Y13,Y15->TP1
-    R39: Y04,Y10,Y11,Y13,Y16->TP1
-    R40: Y04,Y10,Y11,Y13,Y18->TP1
-    R41: Y01,Y09,Y11,Y13,Y18->TP1
-    R42: Y01,Y10,Y11,Y13,Y15->TP1
-    R43: Y01,Y10,Y11,Y13,Y16->TP1
-    R44: Y10,Y11,Y13,Y18,Y01->TP1
-    R45: Y05,Y07,Y12,Y14,Y17->TP2
-    R46: Y05,Y07,Y12,Y14,Y19->TP2
-    R47: Y05,Y08,Y12,Y14,Y17->TP2
-    R48: Y05,Y07,Y12,Y14,Y19->TP2
-    R49: Y05,Y07,Y12,Y13,Y15->TP3
-    R50: Y05,Y07,Y12,Y13,Y17->TP3
-    R51: Y05,Y07,Y12,Y14,Y15->TP3
-    R52: Y05,Y07,Y12,Y14,Y17->TP3
-    R53: Y05,Y08,Y12,Y13,Y15->TP3
-    R54: Y05,Y08,Y12,Y13,Y17->TP3
-    R55: Y05,Y08,Y12,Y14,Y15->TP3
-    R56: Y05,Y08,Y12,Y14,Y15->TP3
-    R57: Y04,Y09,Y12,Y14,Y19->TP4
-    R58: Y04,Y08,Y12,Y14,Y19->TP4
-    R59: Y05,Y09,Y12,Y14,Y17->TP4
-    R60: Y05,Y08,Y12,Y14,Y19->TP4
-    R61: Y03,Y09,Y11,Y14,Y15->TP5
-    R62: Y03,Y09,Y11,Y14,Y16->TP5
-    R63: Y03,Y09,Y12,Y14,Y15->TP5
-    R64: Y03,Y09,Y12,Y14,Y16->TP5
-    R65: Y03,Y10,Y11,Y14,Y16->TP5
-    R66: Y03,Y10,Y11,Y14,Y16->TP5
-    R67: Y03,Y10,Y12,Y14,Y15->TP5
-    R68: Y03,Y10,Y12,Y14,Y16->TP5
-    R69: Y06,Y09,Y11,Y14,Y16->TP6
-    R70: Y06,Y10,Y11,Y14,Y16->TP6
-    R71: Y02,Y08,Y11,Y14,Y15->TP7
-    R72: Y02,Y08,Y11,Y14,Y17->TP7
+    R1: Y01,Y09,Y12,Y14,Y16->TP1
+    R2: Y01,Y09,Y12,Y14,Y17->TP1
+    R3: Y01,Y09,Y12,Y14,Y19->TP1
+    R4: Y03,Y09,Y12,Y14,Y17->TP1
+    R5: Y03,Y09,Y12,Y14,Y17->TP1
+    R6: Y03,Y09,Y12,Y14,Y19->TP1
+    R7: Y03,Y10,Y12,Y14,Y16->TP1
+    R8: Y03,Y10,Y12,Y14,Y17->TP1
+    R9: Y03,Y10,Y12,Y14,Y19->TP1
+    R10: Y03,Y11,Y12,Y14,Y16->TP1
+    R11: Y03,Y11,Y12,Y14,Y17->TP1
+    R12: Y03,Y11,Y12,Y14,Y19->TP1
+    R13: Y01,Y10,Y12,Y14,Y16->TP1
+    R14: Y04,Y09,Y12,Y14,Y16->TP1
+    R15: Y04,Y09,Y12,Y14,Y17->TP1
+    R16: Y04,Y09,Y12,Y14,Y19->TP1
+    R17: Y01,Y09,Y11,Y13,Y16->TP1
+    R18: Y10,Y04,Y12,Y14,Y16->TP1
+    R19: Y04,Y10,Y12,Y14,Y17->TP1
+    R20: Y04,Y10,Y12,Y14,Y19->TP1
+    R21: Y04,Y11,Y12,Y14,Y16->TP1
+    R22: Y04,Y11,Y12,Y14,Y17->TP1
+    R23: Y04,Y11,Y12,Y14,Y19->TP1
+    R24: Y01,Y10,Y12,Y14,Y19->TP1
+    R25: Y01,Y11,Y12,Y14,Y16->TP1
+    R26: Y01,Y11,Y12,Y14,Y17->TP1
+    R27: Y01,Y11,Y12,Y14,Y19->TP1
+    R28: Y01,Y08,Y13,Y15,Y18->TP2
+    R29: Y01,Y08,Y13,Y15,Y20->TP2
+    R30: Y01,Y09,Y13,Y15,Y18->TP2
+    R31: Y01,Y08,Y13,Y15,Y18->TP2
+    R32: Y05,Y08,Y13,Y15,Y18->TP2
+    R33: Y05,Y08,Y13,Y15,Y20->TP2
+    R34: Y05,Y09,Y13,Y15,Y18->TP2
+    R35: Y05,Y08,Y13,Y15,Y20->TP2
+    R36: Y05,Y08,Y13,Y14,Y16->TP3
+    R37: Y05,Y08,Y13,Y14,Y18->TP3
+    R38: Y05,Y08,Y13,Y15,Y16->TP3
+    R39: Y05,Y08,Y13,Y15,Y18->TP3
+    R40: Y05,Y09,Y13,Y14,Y16->TP3
+    R41: Y05,Y09,Y13,Y14,Y18->TP3
+    R42: Y05,Y09,Y13,Y15,Y16->TP3
+    R43: Y05,Y09,Y13,Y15,Y18->TP3
+    R44: Y07,Y08,Y13,Y14,Y16->TP3
+    R45: Y07,Y09,Y13,Y14,Y16->TP3
+    R46: Y01,Y09,Y13,Y15,Y20->TP4
+    R47: Y01,Y08,Y13,Y15,Y20->TP4
+    R48: Y02,Y09,Y13,Y15,Y20->TP4
+    R49: Y02,Y10,Y13,Y15,Y20->TP4
+    R50: Y04,Y10,Y13,Y15,Y20->TP4
+    R51: Y04,Y09,Y13,Y15,Y20->TP4
+    R52: Y05,Y10,Y13,Y15,Y20->TP4
+    R53: Y05,Y09,Y13,Y15,Y20->TP4
+    R54: Y03,Y10,Y12,Y15,Y16->TP5
+    R55: Y03,Y10,Y12,Y15,Y17->TP5
+    R56: Y03,Y10,Y13,Y15,Y16->TP5
+    R57: Y03,Y10,Y13,Y15,Y17->TP5
+    R58: Y03,Y11,Y12,Y15,Y16->TP5
+    R59: Y03,Y11,Y12,Y15,Y17->TP5
+    R60: Y03,Y11,Y13,Y15,Y16->TP5
+    R61: Y03,Y11,Y13,Y15,Y17->TP5
+    R62: Y06,Y10,Y12,Y15,Y17->TP6
+    R63: Y06,Y11,Y12,Y15,Y17->TP6
+    R64: Y02,Y08,Y12,Y14,Y16->TP7
+    R65: Y02,Y08,Y12,Y14,Y18->TP7
+    R66: Y02,Y08,Y12,Y14,Y18->TP7
+    R67: Y02,Y08,Y12,Y15,Y16->TP7
+    R68: Y02,Y08,Y12,Y15,Y18->TP7
+    R69: Y02,Y08,Y12,Y15,Y19->TP7
+    R70: Y09,Y02,Y12,Y15,Y19->TP7
+    R71: Y02,Y09,Y12,Y14,Y18->TP7
+    R72: Y02,Y09,Y12,Y14,Y19->TP7
+    R73: Y02,Y09,Y12,Y15,Y19->TP7
+    R74: Y02,Y09,Y12,Y15,Y18->TP7
+    R75: Y02,Y09,Y12,Y15,Y19->TP7
+    R76: Y07,Y08,Y12,Y15,Y16->TP8
+    R77: Y07,Y08,Y12,Y15,Y18->TP8
+    R78: Y07,Y09,Y12,Y15,Y16->TP8
+    R79: Y07,Y09,Y12,Y15,Y18->TP8
+    R80: Y07,Y08,Y13,Y14,Y16->TP9
+    R81: Y07,Y08,Y13,Y15,Y16->TP9
+    R82: Y07,Y09,Y13,Y14,Y16->TP9
 
   2) Các đặc điểm lựa chọn trang phục của người dùng
-    Y01, Y08, Y11, Y13, Y15.
+    Y01, Y11, Y12, Y14, Y16.
 
   3) Trang phục dự đoán
     TP1.
 
 PART 2. Suy diễn
-  1) Goal TP1. Tìm thấy luật R1:Y01,Y08,Y11,Y13,Y15->TP1. Các goals mới cần chứng mình là Y01, Y08, Y11, Y13, Y15.
-  2) -Goal Y01. Cập nhật  Y01, bởi vì được tìm thấy trong tập gốc Y01, Y08, Y11, Y13, Y15. Trả về thành công.
-  3) -Goal Y08. Cập nhật  Y08, bởi vì được tìm thấy trong tập gốc Y01, Y08, Y11, Y13, Y15. Trả về thành công.
-  4) -Goal Y11. Cập nhật  Y11, bởi vì được tìm thấy trong tập gốc Y01, Y08, Y11, Y13, Y15. Trả về thành công.
-  5) -Goal Y13. Cập nhật  Y13, bởi vì được tìm thấy trong tập gốc Y01, Y08, Y11, Y13, Y15. Trả về thành công.
-  6) -Goal Y15. Cập nhật  Y15, bởi vì được tìm thấy trong tập gốc Y01, Y08, Y11, Y13, Y15. Trả về thành công.
-  7) ==>Goal TP1. Đã được chứng minh, Trả về thành công
+  1) Goal TP1. Tìm thấy luật R1:Y01,Y09,Y12,Y14,Y16->TP1. Các goals mới cần chứng mình là Y01, Y09, Y12, Y14, Y16.
+  2) -Goal Y01. Cập nhật  Y01, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+  3) -Goal Y09. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+  4) Goal TP1. Tìm thấy luật R2:Y01,Y09,Y12,Y14,Y17->TP1. Các goals mới cần chứng mình là Y01, Y09, Y12, Y14, Y17.
+  5) -Goal Y01. Cập nhật  Y01, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+  6) -Goal Y09. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+  7) Goal TP1. Tìm thấy luật R3:Y01,Y09,Y12,Y14,Y19->TP1. Các goals mới cần chứng mình là Y01, Y09, Y12, Y14, Y19.
+  8) -Goal Y01. Cập nhật  Y01, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+  9) -Goal Y09. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 10) Goal TP1. Tìm thấy luật R4:Y03,Y09,Y12,Y14,Y17->TP1. Các goals mới cần chứng mình là Y03, Y09, Y12, Y14, Y17.
+ 11) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 12) Goal TP1. Tìm thấy luật R5:Y03,Y09,Y12,Y14,Y17->TP1. Các goals mới cần chứng mình là Y03, Y09, Y12, Y14, Y17.
+ 13) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 14) Goal TP1. Tìm thấy luật R6:Y03,Y09,Y12,Y14,Y19->TP1. Các goals mới cần chứng mình là Y03, Y09, Y12, Y14, Y19.
+ 15) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 16) Goal TP1. Tìm thấy luật R7:Y03,Y10,Y12,Y14,Y16->TP1. Các goals mới cần chứng mình là Y03, Y10, Y12, Y14, Y16.
+ 17) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 18) Goal TP1. Tìm thấy luật R8:Y03,Y10,Y12,Y14,Y17->TP1. Các goals mới cần chứng mình là Y03, Y10, Y12, Y14, Y17.
+ 19) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 20) Goal TP1. Tìm thấy luật R9:Y03,Y10,Y12,Y14,Y19->TP1. Các goals mới cần chứng mình là Y03, Y10, Y12, Y14, Y19.
+ 21) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 22) Goal TP1. Tìm thấy luật R10:Y03,Y11,Y12,Y14,Y16->TP1. Các goals mới cần chứng mình là Y03, Y11, Y12, Y14, Y16.
+ 23) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 24) Goal TP1. Tìm thấy luật R11:Y03,Y11,Y12,Y14,Y17->TP1. Các goals mới cần chứng mình là Y03, Y11, Y12, Y14, Y17.
+ 25) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 26) Goal TP1. Tìm thấy luật R12:Y03,Y11,Y12,Y14,Y19->TP1. Các goals mới cần chứng mình là Y03, Y11, Y12, Y14, Y19.
+ 27) -Goal Y03. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 28) Goal TP1. Tìm thấy luật R13:Y01,Y10,Y12,Y14,Y16->TP1. Các goals mới cần chứng mình là Y01, Y10, Y12, Y14, Y16.
+ 29) -Goal Y01. Cập nhật  Y01, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+ 30) -Goal Y10. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 31) Goal TP1. Tìm thấy luật R14:Y04,Y09,Y12,Y14,Y16->TP1. Các goals mới cần chứng mình là Y04, Y09, Y12, Y14, Y16.
+ 32) -Goal Y04. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 33) Goal TP1. Tìm thấy luật R15:Y04,Y09,Y12,Y14,Y17->TP1. Các goals mới cần chứng mình là Y04, Y09, Y12, Y14, Y17.
+ 34) -Goal Y04. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 35) Goal TP1. Tìm thấy luật R16:Y04,Y09,Y12,Y14,Y19->TP1. Các goals mới cần chứng mình là Y04, Y09, Y12, Y14, Y19.
+ 36) -Goal Y04. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 37) Goal TP1. Tìm thấy luật R17:Y01,Y09,Y11,Y13,Y16->TP1. Các goals mới cần chứng mình là Y01, Y09, Y11, Y13, Y16.
+ 38) -Goal Y01. Cập nhật  Y01, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+ 39) -Goal Y09. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 40) Goal TP1. Tìm thấy luật R18:Y10,Y04,Y12,Y14,Y16->TP1. Các goals mới cần chứng mình là Y10, Y04, Y12, Y14, Y16.
+ 41) -Goal Y10. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 42) Goal TP1. Tìm thấy luật R19:Y04,Y10,Y12,Y14,Y17->TP1. Các goals mới cần chứng mình là Y04, Y10, Y12, Y14, Y17.
+ 43) -Goal Y04. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 44) Goal TP1. Tìm thấy luật R20:Y04,Y10,Y12,Y14,Y19->TP1. Các goals mới cần chứng mình là Y04, Y10, Y12, Y14, Y19.
+ 45) -Goal Y04. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 46) Goal TP1. Tìm thấy luật R21:Y04,Y11,Y12,Y14,Y16->TP1. Các goals mới cần chứng mình là Y04, Y11, Y12, Y14, Y16.
+ 47) -Goal Y04. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 48) Goal TP1. Tìm thấy luật R22:Y04,Y11,Y12,Y14,Y17->TP1. Các goals mới cần chứng mình là Y04, Y11, Y12, Y14, Y17.
+ 49) -Goal Y04. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 50) Goal TP1. Tìm thấy luật R23:Y04,Y11,Y12,Y14,Y19->TP1. Các goals mới cần chứng mình là Y04, Y11, Y12, Y14, Y19.
+ 51) -Goal Y04. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 52) Goal TP1. Tìm thấy luật R24:Y01,Y10,Y12,Y14,Y19->TP1. Các goals mới cần chứng mình là Y01, Y10, Y12, Y14, Y19.
+ 53) -Goal Y01. Cập nhật  Y01, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+ 54) -Goal Y10. Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.
+ 55) Goal TP1. Tìm thấy luật R25:Y01,Y11,Y12,Y14,Y16->TP1. Các goals mới cần chứng mình là Y01, Y11, Y12, Y14, Y16.
+ 56) -Goal Y01. Cập nhật  Y01, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+ 57) -Goal Y11. Cập nhật  Y11, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+ 58) -Goal Y12. Cập nhật  Y12, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+ 59) -Goal Y14. Cập nhật  Y14, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+ 60) -Goal Y16. Cập nhật  Y16, bởi vì được tìm thấy trong tập gốc Y01, Y11, Y12, Y14, Y16. Trả về thành công.
+ 61) ==>Goal TP1. Đã được chứng minh, Trả về thành công
 
 PART 3. Kết quả
   1) Goal TP1 được chứng minh.
-  2) Road: R1.
+  2) Road: R25.
