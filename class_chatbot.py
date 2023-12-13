@@ -294,32 +294,3 @@ class User:
         return f"{self.purpose} - {self.age} - {self.weather_preference} - {self.gender} - {self.style}"
 
 
-def searchindexrule(rule,goal):
-    
-    index=[]
-    for r in range(len(rule)):
-        if rule[r][0]==goal:
-            index.append(r)
-    return index
-def get_s_in_d(answer,goal,rule,d,flag):
-
-    result=[]
-    index=[]
-    if flag==1:
-        for i in range(len(rule)):
-            if (rule[i][0]==goal) and (answer in rule[i]) and (i in d):
-                for j in rule[i]:
-                    if j[0]=='T':
-                        result.append(j)
-                        # result=set()
-    else:
-        for i in range(len(rule)):
-            if (rule[i][0]==goal) and (answer in rule[i]): index.append(i)
-            if (rule[i][0]==goal) and (answer not in rule[i]) and (i in d):
-                for j in rule[i]:
-                    if j[0]=='T':
-                        result.append(j)        
-
-    return sorted(set(result)),index
-
-

@@ -7,7 +7,7 @@ class Rule:
         self.flag2 = False
         # self.r=r
 
-    def follows(self, facts):# facts là các triệu chứng đã có
+    def follows(self, facts):# facts là các đặc điểm đã có
         for fact in self.left: # cho từng luật ở vế trái
             if fact not in facts: # nếu như luật đó ko tồn tại trong facts ban đầu
                 return fact # thì trả về cái luật đó
@@ -40,7 +40,7 @@ class BackwardChaining:
         ls=0 # Biến điều kiện, nếu ls==0 thì không có luật nào phù hợp với goal và fact thì trả về false
         for rule in self.rules:
             # ls=0
-            dk=1 #Biến điều kiện để dừng vòng lặp khi có triệu chứng không thuộc fact ban đầu
+            dk=1 #Biến điều kiện để dừng vòng lặp khi có đặc điểm không thuộc fact ban đầu
             
             if rule.right==goal:
                 self.print_step(goal, indent, "Tìm thấy luật %s. Các goals mới cần chứng mình là %s." % ("R" + str(self.rules.index(rule) + 1) + ":" + str(rule), ", ".join(rule.left)))
@@ -59,12 +59,12 @@ class BackwardChaining:
                         # dk=1
                 self.road="R" + str(self.rules.index(rule) + 1)
                 
-                if dk==1: #Kiểm tra nếu đúng hết các triệu chứng thì dừng vòng lặp
+                if dk==1: #Kiểm tra nếu đúng hết các đặc điểm thì dừng vòng lặp
                     ls=1 #Kiểm tra xem có fact nào có trong tập luật ban đầu không
                     self.print_step(rule.right,indent+"==>","Đã được chứng minh, Trả về thành công")
                     break 
         if ls==0: #Nếu không có luật nào trả lời đùng theo fact thì dừng
-            self.print_step(goal, indent, "Không có luật nào để suy diễn/không có triệu chứng này ban đầu. Trả về thất bại.")
+            self.print_step(goal, indent, "Không có luật nào để suy diễn/không có đặc điểm này ban đầu. Trả về thất bại.")
             return False
         else:
             return True

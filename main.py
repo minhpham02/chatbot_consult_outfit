@@ -57,7 +57,6 @@ def question():
             print('-->Chatbot: Vui lòng nhập 1 số từ 1 tới 7')
             continue
         else:
-            print(AllSymLst[int(answer)-1])
             user.purpose = AllSymLst[int(answer)-1]
             break
 
@@ -71,6 +70,10 @@ def question():
         if int(age) > 100:
             print("-->Chatbot : Số tuổi không hợp lệ. Vui lòng nhập lại ")
             continue
+        elif int(age) < 15:
+            print("-->Chatbot : Hệ thống được thiết kế để tư vấn cho độ tuổi từ 15 tuổi trở lên")
+            print("-->Chatbot : Rất xin lỗi về sự bất tiện này của hệ thống")
+            sys.exit()
         else:
             user.age = int(age)
             break
@@ -108,7 +111,7 @@ def handle_question(list_characteristic_of_person, user):
         list_characteristic_of_person.append(list_age[1])
     elif user.age <= 50 and user.age >= 30:
         list_characteristic_of_person.append(list_age[2])
-    else:
+    elif user.age > 50:
         list_characteristic_of_person.append(list_age[3])
 
     #lấy thời tiết khi mặc trang phục của người dùng
@@ -225,7 +228,9 @@ def question_weakness(goal):
               , db.resultkhuyetdiem[9], db.resultkhuyetdiem[10], db.resultkhuyetdiem[11]
               , db.resultkhuyetdiem[12], db.resultkhuyetdiem[13], db.resultkhuyetdiem[14]
               , db.resultkhuyetdiem[15], db.resultkhuyetdiem[16], db.resultkhuyetdiem[17]
-              , db.resultkhuyetdiem[18], db.resultkhuyetdiem[19]]
+              , db.resultkhuyetdiem[18], db.resultkhuyetdiem[19], db.resultkhuyetdiem[20]
+              , db.resultkhuyetdiem[21] , db.resultkhuyetdiem[22], db.resultkhuyetdiem[23]
+              , db.resultkhuyetdiem[24]]
     all_kd = []
     all_lk = []
 
@@ -253,10 +258,10 @@ def question_weakness(goal):
 # 8. Câu hỏi để tư vấn size quần áo
 def question_size():
     print(f'-->Chatbot: Để có một bộ trang phục vừa vặn với cơ thể của bạn chúng tôi sẽ tư vấn về size quần áo cho bạn')
-    print(f' Vui lòng nhập chiều cao và cân nặng để được tư vấn')
+    print(f'-->Chatbot: Vui lòng nhập chiều cao và cân nặng để được tư vấn')
     # Nhập chiều cao và cân nặng từ người dùng
-    chieu_cao = float(input("Nhập chiều cao của bạn (cm): "))
-    can_nang = float(input("Nhập cân nặng của bạn (kg): "))
+    chieu_cao = float(input("-->Người dùng: Chiều cao của tôi là (cm): "))
+    can_nang = float(input("-->Người dùng: Cân nặng của tôi là (kg): "))
     print(f'-->Chatbot: Size áo phù hợp với bạn là {ketQua(chieu_cao, can_nang)}')
     print(f'-->Chatbot: Bạn có thể mặc thêm hoặc giảm 1 size tùy thuộc vào cơ thể để có một bộ trang phục ưng ý nhất')
     print(f'-->Chatbot: Trên đây là toàn bộ tư vấn của chúng tôi về trang phục. Cảm ơn bạn đã sử dụng chatbot')
